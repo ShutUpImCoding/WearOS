@@ -1,34 +1,61 @@
 package com.example.mykotlinwearos.presentation.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.items
+import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
+import androidx.wear.compose.material.Chip
+import androidx.wear.compose.material.ChipDefaults
+import androidx.wear.compose.material.Text
+import androidx.wear.compose.material.Icon
+import com.example.mykotlinwearos.presentation.theme.CustomThemeHelper
+
 
 @Composable
 fun MainScreen(navController: NavController) {
-    Box(
+    val colors = CustomThemeHelper.colors
+
+    val buttons = listOf(
+        "Blue Screen" to "blue",
+        "Green Screen" to "green",
+        "Filler Test" to ""
+    )
+
+    val listState = rememberScalingLazyListState()
+
+    ScalingLazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black),
-        contentAlignment = Alignment.Center
+            .background(colors.background),
+        state = listState,
+        horizontalAlignment = Alignment.CenterHorizontally,
+
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Main Screen", color = Color.White)
-            Spacer(Modifier.height(16.dp))
-            Button(onClick = { navController.navigate("blue") }) {
-                Text("Go to Blue Screen")
-            }
-            Spacer(Modifier.height(16.dp))
-            Button(onClick = { navController.navigate("green") }) {
-                Text("Go to Green Screen")
-            }
+        item {
+            Text(text = "Main Screen", color = colors.textPrimary)
+        }
+
+        items(buttons) { (label, route) ->
+            Chip(
+                onClick = { if (route.isNotEmpty()) navController.navigate(route) },
+                label = { Text(label) },
+
+                colors = ChipDefaults.chipColors(
+                    backgroundColor = colors.buttonMain,
+                    contentColor = colors.textBlack
+                )
+            )
         }
     }
 }
+
