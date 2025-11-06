@@ -21,7 +21,9 @@ import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
 import androidx.compose.material.icons.filled.*
+import androidx.compose.ui.res.stringResource
 import androidx.wear.compose.material.Text
+import com.example.mykotlinwearos.R
 import com.example.mykotlinwearos.presentation.components.IconButton
 import com.example.mykotlinwearos.presentation.theme.AppIcons
 import com.example.mykotlinwearos.presentation.theme.CustomThemeHelper
@@ -51,7 +53,7 @@ fun MainScreen(navController: NavController) {
     ) {
 
         item {
-            Text(text = "MAIN SCREEN", color = colors.textPrimary)
+            Text(text = stringResource(R.string.app_header), color = colors.textPrimary)
         }
         items(buttons) { (label, route, icon) ->
             IconButton(
@@ -61,10 +63,14 @@ fun MainScreen(navController: NavController) {
             )
         }
         item {
-            Text(text = "TEST", color = colors.textPrimary)
+            Text(text = stringResource(R.string.app_end), color = colors.textPrimary)
+        }
+        item {
+            Text(text = stringResource(R.string.hello_name, "test name" ), color = colors.textPrimary)
         }
 
+ }
 
-    }
+
 }
 

@@ -2,32 +2,22 @@ package com.example.mykotlinwearos.presentation.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 import androidx.wear.compose.material.Button
 import androidx.wear.compose.material.ButtonDefaults
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.wear.compose.material.Icon
 import com.example.mykotlinwearos.presentation.theme.CustomThemeHelper
-import kotlinx.coroutines.internal.OpDescriptor
+
 
 
 /**
- * Uudelleenkäytettävä Wear OS -painike, johon voi antaa ikonin käyttöpaikassa.
+ * Re usable icon button, icon added on function
  *
- * @param text painikkeen teksti
- * @param onClick click-handler
- * @param modifier Modifier (ei pakollinen)
- * @param iconSlot valinnainen composable-slot jolle voit antaa ikonisi (esim. { Icon(...) } )
- * @param iconAtEnd jos true, ikoni näytetään tekstin jälkeen; muuten ennen tekstiä
- * @param enabled onko painike aktiivinen
  *
  IconButton(
  onClick = { /* do sth */ },

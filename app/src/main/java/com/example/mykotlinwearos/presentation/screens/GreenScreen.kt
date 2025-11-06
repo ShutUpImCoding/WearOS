@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.mykotlinwearos.presentation.theme.AppTypography
 import com.example.mykotlinwearos.presentation.theme.CustomThemeHelper
 
 @Composable
@@ -24,8 +25,17 @@ fun GreenScreen(navController: NavController) {
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Green Screen", color = colors.textPrimary)
+
+            Text("Header", style = AppTypography.header, color = colors.textPrimary)
+            Text("Title", style = AppTypography.title, color = colors.textPrimary)
+            Text("Body", style = AppTypography.body, color = colors.textPrimary)
+
+            Text("92", style = AppTypography.body, color = colors.textPrimary)
+            Text("88", style = AppTypography.numberNormal, color = colors.textPrimary)
+            Text("88", style = AppTypography.numberLarge, color = colors.textPrimary)
+
             Spacer(Modifier.height(16.dp))
+
             Button(onClick = { navController.popBackStack() },
                     colors = ButtonDefaults.buttonColors(backgroundColor = colors.iconAcceptBg)
                 ) {

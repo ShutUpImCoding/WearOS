@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Minun Kotlin</string>
+    <string name="app_header">Päänäytön testi</string>
+    <string name="hello_name">Hei, %1$s!</string>
+    <string name="app_end">Päänäytön loppusivu</string>
+    <string name="theme_test">Teema testi</string>
+    <string name="practice">Harjoittelu</string>
+    <string name="back">Takaisin</string>
+    <string name="heart">Syke</string>
+    <string name="sleep">Pitempi teksti mitä harjoitella</string>
+    <string name="panicButton">Tarvitsen apua</string>
+</resources>
