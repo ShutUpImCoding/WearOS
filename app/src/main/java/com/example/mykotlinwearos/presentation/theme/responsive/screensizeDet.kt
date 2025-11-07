@@ -1,4 +1,4 @@
-package com.example.mykotlinwearos.presentation.theme
+package com.example.mykotlinwearos.presentation.theme.responsive
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -7,6 +7,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 // SCREEN SIZE DETECTOR
+// val screen = rememberWearScreenConfig() using this function
 
 data class WearScreenConfig(
     val isRound: Boolean,
@@ -15,7 +16,8 @@ data class WearScreenConfig(
     val screenHeight: Dp,
     val horizontalPadding: Dp,
     val verticalPadding: Dp,
-    val contentPadding: Dp
+    val contentPadding: Dp,
+    val debugBorders: Boolean = false //borders for debugging
 )
 
 @Composable
@@ -28,23 +30,18 @@ fun rememberWearScreenConfig(): WearScreenConfig {
         val isRound = kotlin.math.abs(screenWidth.value - screenHeight.value) < 10
         val isSmall = screenWidth < 200.dp
 
+        val horizontalPadding = (screenWidth * if (isRound) 0.03f else 0.04f)
+        val verticalPadding = (screenHeight * if (isRound) 0.02f else 0.03f)
+        val contentPadding = (screenWidth * 0.04f)
+
         WearScreenConfig(
             isRound = isRound,
             isSmall = isSmall,
             screenWidth = screenWidth,
             screenHeight = screenHeight,
-            horizontalPadding = when {
-                isRound && isSmall -> 16.dp
-                isRound -> 24.dp
-                isSmall -> 12.dp
-                else -> 16.dp
-            },
-            verticalPadding = when {
-                isSmall -> 8.dp
-                isRound -> 24.dp
-                else -> 12.dp
-            },
-            contentPadding = if (isSmall) 8.dp else 12.dp
+            horizontalPadding = horizontalPadding,
+            verticalPadding = verticalPadding,
+            contentPadding = contentPadding
         )
     }
 }

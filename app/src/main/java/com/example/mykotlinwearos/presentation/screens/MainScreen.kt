@@ -35,8 +35,8 @@ fun MainScreen(navController: NavController) {
     val colors = CustomThemeHelper.colors
 
     val buttons = listOf(
-        Triple("Theme test", "blue", AppIcons.Reset),
-        Triple("Practice", "practice", AppIcons.Info),
+        Triple("Theme test", "themeTest", AppIcons.Reset),
+        Triple("today", "today", AppIcons.Info),
         Triple("Screen size", "configTest", AppIcons.Account)
     )
 
@@ -53,7 +53,7 @@ fun MainScreen(navController: NavController) {
     ) {
 
         item {
-            Text(text = stringResource(R.string.app_header), color = colors.textPrimary)
+            Text(text = stringResource(R.string.app_welcome), color = colors.textPrimary)
         }
         items(buttons) { (label, route, icon) ->
             IconButton(
@@ -63,7 +63,7 @@ fun MainScreen(navController: NavController) {
             )
         }
         item {
-            Text(text = stringResource(R.string.app_end), color = colors.textPrimary)
+            Text(text = stringResource(R.string.exit), color = colors.textPrimary)
         }
         item {
             Text(text = stringResource(R.string.hello_name, "test name" ), color = colors.textPrimary)

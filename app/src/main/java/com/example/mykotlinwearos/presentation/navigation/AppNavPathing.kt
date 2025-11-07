@@ -17,8 +17,8 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
         startDestination = "main"
     ) {
         composable("main") { MainScreen(navController) }
-        composable("blue") { BlueScreen(navController) }
-        composable("practice") { GreenScreen(navController) }
+        composable("themeTest") { ThemeTestScreen(navController) }
+        composable("today") { TodayScreen(navController) }
         composable("configTest") { SimpleConfigTest(navController)}
     }
 }
