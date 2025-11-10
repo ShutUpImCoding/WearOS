@@ -46,9 +46,9 @@ fun rememberSizeKit(): SizeKit {
         navIconSize = (screen.screenWidth * 0.45f),
 
         //SPACING SCALE
-        spacingSmall = (4 * scale).dp,
-        spacingMedium = (6 * scale).dp,
-        spacingLarge = (8 * scale).dp,
+        spacingSmall = (2 * scale).dp,
+        spacingMedium = (3 * scale).dp,
+        spacingLarge = (5 * scale).dp,
 
         //ICON SIZES
         iconSmall = (25 * scale).dp,
